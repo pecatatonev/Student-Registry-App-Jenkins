@@ -26,7 +26,9 @@ pipeline {
 
         stage('Start Application') {
             steps {
-                bat 'npm start &'
+                bat 'start /B npm start'
+                // Wait 5 seconds to let the application initialize
+                bat 'timeout /t 5'
             }
         }
 
