@@ -26,7 +26,7 @@ pipeline {
 
         stage('Start Application') {
             steps {
-                bat 'npm start &'
+                bat 'nohup npm start &'
             }
         }
 
