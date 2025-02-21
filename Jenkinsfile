@@ -20,19 +20,19 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                bash 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Start Application') {
             steps {
-                bash 'npm start &'
+                bat 'npm start &'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bash 'npm test'
+                bat 'npm test'
             }
         }
     }
