@@ -13,14 +13,11 @@ pipeline {
         }
 
         stage('Setup Node.js') {
-    steps {
-        bash 'curl -fsSL https://deb.nodesource.com/setup_18.x | bash -'
-        bash 'sudo apt-get install -y nodejs'
-        bash 'node -v'
-    }
-}
-
-
+            steps {
+        bat 'where node'  // Check if Node.js is installed
+        bat 'node -v'     // Verify Node.js version
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 bash 'npm install'
