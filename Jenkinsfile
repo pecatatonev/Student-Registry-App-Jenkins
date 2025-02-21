@@ -13,13 +13,13 @@ pipeline {
         }
 
         stage('Setup Node.js') {
-            steps {
-                script {
-                    def nodeTool = tool name: "NodeJS ${NODE_VERSION}", type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-                    env.PATH = "${nodeTool}/bin:${env.PATH}"
-                }
-            }
-        }
+    steps {
+        bash 'curl -fsSL https://deb.nodesource.com/setup_18.x | bash -'
+        bash 'sudo apt-get install -y nodejs'
+        bash 'node -v'
+    }
+}
+
 
         stage('Install Dependencies') {
             steps {
